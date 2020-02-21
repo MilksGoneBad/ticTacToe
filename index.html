@@ -7,7 +7,36 @@
 
 <body>
     <br>
-    <div class="container">
+    <div class="main_container">
+            <h1 class="title">Tic Tac Toe</h1>
+            <h2 class="title">Choose Game Mode</h2>
+            <button id="single_player">Single Player</button>
+            <button id="multiplayer">Multiplayer</button>
+            <form class="player_form" id="p1form">
+                Player 1 Name: <input type="text">
+            </form>
+            <form class="player_form" id="p2form">
+                Player 2 Name: <input type="text">
+            </form>
+            <button class="diff_button">Easy</button>
+            <button class="diff_button">Hard</button>
+            <button id="play_button">Play Now</button>
+    </div>
+    <div class="game_container">
+            <span id="player_1_name">Player 1</span>
+            <span class="space"></span>
+            <span id="player_2_name">Player 2</span>
+            <span id="player_1_score">0</span>
+            <span class="space"></span>
+            <span id="player_2_score">0</span>
+            <button id="recommendation">Recommendation</button>
+            <button id="main_menu">Main Menu</button>
+            <button id="restart">Restart</button>
+
+
+
+    </div>
+    <div class="tic_container">
         <span class="cell gameSquare" id="1"> </span>
         <span class="cell gameSquare" id="2"> </span>
         <span class="cell gameSquare" id="3"> </span>

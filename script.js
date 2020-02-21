@@ -20,8 +20,8 @@ const gameEngine = () => {
     let winner = ""; 
     const checkHorizontals = (arr) => {
         let result = 0;
-        for (i = 1; i < boardStateArray.length+1; i++) {
-            result += boardStateArray[i-1];
+        for (i = 1; i < arr.length+1; i++) {
+            result += arr[i-1];
             if (result == 3) { winner = "Player One" };
             if (result == -3) { winner = "Player Two" };
             if (i % 3 === 0) {result = 0};
@@ -30,16 +30,16 @@ const gameEngine = () => {
     const checkVerticals = (arr) => {
     for (j = 1; j < 4; j++) {
         let result = 0;
-        for (i = j; i < boardStateArray.length+1; i=i+3) {
-            result += boardStateArray[i-1];
+        for (i = j; i < arr.length+1; i=i+3) {
+            result += arr[i-1];
             if (result == 3) { winner = "Player One" };
             if (result == -3) { winner = "Player Two" };
         }
     }
 }
     const checkDiagonals = (arr) => {
-        let diagOne = boardStateArray[0] + boardStateArray[4] + boardStateArray[8];
-        let diagTwo = boardStateArray[2] + boardStateArray[4] + boardStateArray[6];
+        let diagOne = arr[0] + arr[4] + arr[8];
+        let diagTwo = arr[2] + arr[4] + arr[6];
         if (diagOne == 3 || diagTwo == 3) { winner = "Player One" };
         if (diagOne == -3 || diagTwo == -3) { winner = "Player Two" };
     }
@@ -49,11 +49,15 @@ const gameEngine = () => {
 };
 let engine = gameEngine();
 
-const checkWinner = () => {
-    engine.checkVerticals();
-    engine.checkHorizontals();
-    engine.checkDiagonals();
+const checkWinner = (e) => {
+    engine.checkVerticals(e);
+    engine.checkHorizontals(e);
+    engine.checkDiagonals(e);
     console.log("working");
+}
+
+const clickWinner = (arr) => {
+    checkWinner(boardStateArray);
 }
 
 const gameBoard = () => {
@@ -114,8 +118,11 @@ const gameBoard = () => {
                     ourTurn = !ourTurn;
                     for (i = 0; i < 9; i++) {
                         if (boardState[i] == 0) {
-
-                        }
+                            boardState[i] = ourTurn == true ? 1 : -1;
+                            checkWinner(boardState);
+                            //the check functions will need to be refactored to return a value rather than 
+                            //change the value of winner variable to be useful here
+                        }  
 
                     }
                     //call this function again with the new boardstate
@@ -174,6 +181,6 @@ const players = () => {
 let board = gameBoard();
 
 body.addEventListener('click', board.addMarkHandler);
-body.addEventListener('click', checkWinner);
+body.addEventListener('click', clickWinner);
 play.addEventListener('click', board.changeScreen);
 mainMenu.addEventListener('click', board.changeScreen);

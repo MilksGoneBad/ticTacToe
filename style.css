@@ -10,9 +10,74 @@
 .gameSquare:hover {
     background-color: rgb(140, 221, 248);
 }
+.main_container {
+    display: grid;
+    width: 40vw;
+    grid-template-columns: repeat(2,19vw);
+    grid-gap: 2vw;
+    margin: auto;
+    margin-top: 10vw;
+    background-color: rgb(252, 250, 178);
+    border-radius: 1vw;
+    box-shadow: 5px 14px 8px 0 rgba(0, 0, 0, 0.438), 10px 16px 20px 0 rgba(0, 0, 0, .19);
+    text-align: center;
+}
 
-.container {
-display: grid;
+.title {
+    grid-column: span 2;
+}
+
+#single_player {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#multiplayer {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.player_form {
+    grid-column: span 2;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.diff_button {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#play_button {
+    margin-left: 10%;
+    margin-right: 10%;
+    grid-column: span 2;
+    margin-bottom: 3vw;
+}
+
+.game_container {
+    display: none;
+    width: 40vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    grid-template-columns: repeat(3,12vw);
+    grid-gap: 2vw;
+    margin: auto;
+    margin-top: 10vw;
+    background-color: rgb(252, 250, 178);
+    border-radius: 1vw;
+    box-shadow: 5px 14px 8px 0 rgba(0, 0, 0, 0.438), 10px 16px 20px 0 rgba(0, 0, 0, .19);
+    text-align: center;
+}
+
+#p2form {
+    display: none;
+}
+
+.tic_container {
+display: none;
 width: 40vw;
 grid-template-columns: repeat(3, 12vw);
 grid-template-rows: repeat(3,12vw);
@@ -20,7 +85,7 @@ grid-gap: 2vw;
 padding: 0vw;
 background: rgb(90, 90, 90);
 margin: auto;
-margin-top: 10vw;
+margin-top: 2vw;
 }
 
 body {
